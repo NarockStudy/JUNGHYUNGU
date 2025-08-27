@@ -19,11 +19,14 @@ int main()
     {   
         cin>>strp>>N>>strn;
         deque <int> dq;
-        bool d = true;
+        // d = 방향 (true = 정방향, false = 역방향)
+        // flag = 에러 발생 여부
+        bool d = true; 
         bool flag = true;
         string temp = "";
         for(int i = 1;i<int(strn.size());i++)
         {
+            // 괄호, 콤마 기준으로 숫자 추출해서 저장
             if(strn[i] ==',' || strn[i]==']'){
                 if(temp!="")dq.push_back(stoi(temp));
                 temp = "";
@@ -34,10 +37,12 @@ int main()
         {
             if(strp[i]=='R')
             {
+                // R → 방향 뒤집기 (실제로 reverse하지 않고 flag만 토글)
                 d = !d;
             }
             else if (strp[i]=='D')
             {
+                // 현재 방향에 따라 앞/뒤에서 원소 제거
                 if(dq.empty()) {
                     flag = false;
                     break;
