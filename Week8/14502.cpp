@@ -81,8 +81,8 @@ int main(){
         }
 
         // 모든 바이러스에 대해 BFS 확산
-        for(auto &v : virus){
-            bfs(v.X, v.Y);
+        for(int i = 0; i < virus.size(); i++){
+            bfs(virus[i].X, virus[i].Y);
         }
 
         // 감염되지 않은 안전 영역 카운트
